@@ -1,0 +1,43 @@
+*{
+    font-family: Poppins;
+}
+
+.fondo{
+    background-color: white;
+    width: 100%;
+    min-height: 60rem;
+}
+.backContact{
+    color: black;
+    text-decoration: none;
+}
+.backContact:hover{
+    color: rgb(187, 54, 54);
+}
+.navbar{
+    background-color: #0899bd;
+}
+.footerLink, .navbarLink{
+    text-decoration: none;
+}
+.footerLink{
+    color: #0899bd;
+}
+.btn-outline-secondary{
+    color: black;
+}
+.cardEdit{
+    background-size:cover;
+    background-position: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.808), rgba(0, 0, 0, 0.5)), url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3O-93SXtdDq_LnorZIW6PZ43iQU8etbPO0FRT6ng2WyGw-LHrAxEx88S-hHvM18CPLzp4nQNmHsi43U-5P2vFwCSToEu0ul3HsfG6MIefFGtLu6ojEtLKMrxV3NEAJGdXtURzLUqyhRr9HtYjXvZjx67Ox9snPOq-3q-w1szKa63jwC-ZAIK_Q005MoPX/d/jaume-rovira-llorca-e2.jpg);
+    color: white;
+}
+.listaAgenda{
+    width: 50vw;
+}
+.form-select{
+    width: 22vw;
+    margin-top: 2vh;
+}
+
+

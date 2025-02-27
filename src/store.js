@@ -1,20 +1,11 @@
 export const initialStore=()=>{
+  const savedSlug = localStorage.getItem('slug') || '';
   return{
-    message: null,
-    todos: [
-      {
-        id: 1,
-        title: "Make the bed",
-        background: null,
-      },
-      {
-        id: 2,
-        title: "Do my homework",
-        background: null,
-      }
-    ]
+    listaContactos:[],
+    slug: savedSlug,
   }
 }
+
 
 export default function storeReducer(store, action = {}) {
   switch(action.type){
@@ -25,6 +16,13 @@ export default function storeReducer(store, action = {}) {
       return {
         ...store,
         todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
+      };
+
+    case 'set_slug':
+      localStorage.setItem('slug', action.payload);
+      return {
+        ...store,
+        slug: action.payload
       };
     default:
       throw Error('Unknown action.');

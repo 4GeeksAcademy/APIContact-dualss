@@ -13,19 +13,18 @@ export const Card = ({ name, address, phone, email, id, onDelete }) => (
             <p className="card-text">
                 <i className="bi bi-envelope"></i> {email}
             </p>
-            {/* Ícono de editar */}
             <Link
                 to={`/AddContact/${id}`} // Redirigir a AddContact con el ID
                 state={{ contact: { id, name, address, phone, email } }}>
                 <i
-                    className="bi bi-pencil me-3" // me-3 es un margen a la derecha
-                    style={{ cursor: 'pointer' }} // Cambiar el cursor a pointer
+                    className="bi bi-pencil me-3"
+                    style={{ cursor: 'pointer' }}
                 ></i>
             </Link>
             <i
                 className="bi bi-trash"
-                onClick={() => onDelete(id)} // Llamar a onDelete con el id
-                style={{ cursor: 'pointer' }} // Cambiar el cursor a pointer
+                onClick={() => onDelete(id)}
+                style={{ cursor: 'pointer' }}
             ></i>
         </div>
     </div>

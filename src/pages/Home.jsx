@@ -12,27 +12,18 @@ const Home = () => {
     const fetchUsers = async () => {
       try {
         const response = await get('?offset=0&limit=100');
-        const agendas = response.agendas; // Cogemos lo que nos ha traido el get para pasarlo ahora 
-
-        // 10. Actualizar el estado con los usuarios obtenidos
+        const agendas = response.agendas; 
         setUsers(agendas);
       } catch (error) {
-        // 11. Manejar errores en caso de que la solicitud falle
         console.error('Error al obtener los usuarios:', error);
       }
     };
-
-    // 12. Llamar a la función fetchUsers
     fetchUsers();
-  }, []); // 13. El array vacío [] asegura que useEffect solo se ejecute una vez (al montar el componente)
+  }, []); 
 
-  // 14. Función para manejar cambios en el input de texto
   const handleInputChange = (e) => {
-    // 15. Actualizar el estado con el valor del input
     setNewUserName(e.target.value);
   };
-
-
   // Función para manejar el cambio en el select
   const handleSelectChange = (e) => {
     const selectedSlug = e.target.value; // Obtener el valor seleccionado (slug)
@@ -40,22 +31,16 @@ const Home = () => {
     console.log('Slug seleccionado:', selectedSlug); // Opcional: Mostrar el slug en la consola
   };
 
-  // 16. Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
-    e.preventDefault(); // 17. Prevenir el comportamiento por defecto del formulario (recargar la página)
-
-    // 18. Verificar que el nombre no esté vacío
+    e.preventDefault(); // Para que no recargue la pagina
     if (!newUserName.trim()) {
       alert('Por favor, ingresa un nombre válido.');
       return;
     }
 
     try {
-      // 19. Hacer una solicitud POST al endpoint con el nuevo nombre
       await post(newUserName);
       setNewUserName('');
-
-      // 21. Actualizar la lista de usuarios haciendo una nueva solicitud GET
       const updatedResponse = await get('?offset=0&limit=100');
       const updatedAgendas = updatedResponse.agendas;
       setUsers(updatedAgendas);
@@ -64,8 +49,6 @@ const Home = () => {
       console.error('Error al agregar el usuario:', error);
     }
   };
-
-  // 23. Renderizar el componente
   return (
     <div className='fondo'>
     <div className='container listaAgenda mt-5 align-items-centre'>
@@ -100,5 +83,4 @@ const Home = () => {
   );
 };
 
-// 27. Exportar el componente para que pueda ser usado en otros archivos
 export default Home;

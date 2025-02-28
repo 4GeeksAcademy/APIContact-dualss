@@ -15,16 +15,11 @@ const Contacts = () => {
             try {
                 const response = await get('/' + selectedSlug + '/contacts');
                 const allContacts = response; // Cogemos lo que nos ha traido el get para pasarlo ahora 
-
-                // 10. Actualizar el estado con los usuarios obtenidos
                 setlistaContactos(allContacts.contacts);
             } catch (error) {
-                // 11. Manejar errores en caso de que la solicitud falle
                 console.error('Error al obtener los usuarios:', error);
             }
         };
-
-        // 12. Llamar a la función fetchUsers
         fetchUsers();
         const interval = setInterval(fetchUsers, 5000);
         return () => clearInterval(interval);
